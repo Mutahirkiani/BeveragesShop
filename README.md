@@ -1,4 +1,4 @@
-I developed this assignment with all the services required for an Online shop.
+I developed this project with all the services required for an Online shop.
 
 1. Can access the bottle service page via http://localhost:8380/home. This shows the available bottles in the h2 database. 
 2. Can access the list of products in cart via http://localhost:8380/cart. This shows the added products in cart.
