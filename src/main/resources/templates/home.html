@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Drink Shop</title>
+    <!-- Bootstrap core CSS -->
+    <link th:href="@{/public/bootstrap/css/bootstrap.min.css}" rel="stylesheet">
+    <link th:href="@{/public/jquery/jquery-ui.min.css}" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous"/>
+    <!-- Custom styles for this template -->
+    <link th:href="@{/css/main.css}" rel="stylesheet">
+
+    <script th:src="@{/public/jquery/jquery.js}"></script>
+    <script th:src="@{/public/jquery/jquery-ui.min.js}"></script>
+    <script th:src="@{/js/main.js}"></script>
+</head>
+<body>
+<div class="container">
+    <th:block th:insert="fragments/header"/>
+    <h2>Bottles</h2>
+    <div class="row">
+        <div th:each="bottle : ${response.bottleDTOS}" class="card" style="width: 18rem;">
+            <img style="width: 286px; height: 286px;" class="card-img-top" th:src="@{${'/img/'+bottle.bottlePic}}" th:alt="${bottle.name}">
+            <div class="card-body">
+                <h5 class="card-title">[[${bottle.name}]]</h5>
+                <p class="card-text">Price: [[${bottle.price}]]$</p>
+                <p class="card-text">Volume: [[${bottle.volume}]]ml</p>
+                <p class="card-text">Vol. Percentage: [[${bottle.volumePercent}]]%</p>
+                <p class="card-text">Stock: [[${bottle.inStock}]]</p>
+                <a th:href="@{${'/add-bottle-to-cart?id='+bottle.id}}" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+    <h2>Crates</h2>
+    <div class="row">
+        <div th:each="crate : ${response.crateDTOS}" class="card" style="width: 18rem;">
+            <img style="width: 286px; height: 286px;" class="card-img-top" th:src="@{${'/img/'+crate.cratePic}}" th:alt="${crate.name}">
+            <div class="card-body">
+                <h5 class="card-title">[[${crate.name}]]</h5>
+                <p class="card-text">Price: [[${crate.price}]]$</p>
+                <p class="card-text">Pack: [[${crate.noOfBottles}]] Bottles</p>
+                <p class="card-text">Stock: [[${crate.cratesInStock}]]</p>
+                <a th:href="@{${'/add-crate-to-cart?id='+crate.id}}" class="btn btn-primary">Add to Cart</a>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
