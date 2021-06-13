@@ -6,4 +6,4 @@ I developed this project with all the services required for an Online shop.
 4. There is one user hardcoded Username: jane Password: jane1234
 5. Can Register for new user.
 
-any questions please write to any of group member.
+any questions please write me an email.
